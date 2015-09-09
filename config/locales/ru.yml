@@ -1,0 +1,10 @@
+ru:
+  hello: "Привет, мир"
+  activerecord:
+    attributes:
+      user:
+        nickname: "Никнейм"
+        password: "Пароль"
+        email: "Почтовый ящик"
+        password_confirmation: "Подтверждение пароля"
+  sign_up: "Регистрация"
