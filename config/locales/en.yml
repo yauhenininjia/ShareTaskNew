@@ -21,6 +21,12 @@
 
 en:
   hello: "Hello world"
+  header:
+    home: "Home"
+    sign_up: "Sign up"
+    sign_in: "Sign in"
+    sign_out: "Sign out"
+    switch_theme: "Switch theme"
   activerecord:
     attributes:
       user:
@@ -28,4 +34,3 @@ en:
         password: "Password"
         email: "Email"
         password_confirmation: "Password confirmation"
-  sign_up: "Sign up"

@@ -4,7 +4,7 @@ class UserController < ApplicationController
 	  	current_user.locale = params[:locale]
 	  	current_user.save
 	  end
-	  params[:path] += '?locale=' + params[:locale]
-	  redirect_to params[:path]#root_path(:locale => params[:locale])
+	  session[:locale] = params[:locale]
+	  redirect_to :back, :locale => params[:locale]
 	end
 end

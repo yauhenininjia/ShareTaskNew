@@ -1,5 +1,11 @@
 ru:
   hello: "Привет, мир"
+  header:
+    home: "Главная"
+    sign_up: "Регистрация"
+    sign_in: "Вход"
+    sign_out: "Выход"
+    switch_theme: "Сменить тему"
   activerecord:
     attributes:
       user:
@@ -7,4 +13,3 @@ ru:
         password: "Пароль"
         email: "Почтовый ящик"
         password_confirmation: "Подтверждение пароля"
-  sign_up: "Регистрация"
