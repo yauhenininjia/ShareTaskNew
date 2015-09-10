@@ -29,14 +29,14 @@ class ApplicationController < ActionController::Base
 
     def set_locale
       if current_user 
-        I18n.locale =  current_user.locale
+        I18n.locale =  request.fullpath.split('/')[1]
       else
         I18n.locale =   session[:locale] || params[:locale] || I18n.default_locale
       end
     end
 
-    def default_url_options(options = {})
-      { locale: I18n.locale }.merge options
-    end
+    #def default_url_options(options = {})
+    #  { locale: I18n.locale }.merge options
+    #end
 
 end
