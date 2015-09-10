@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   protected
 
     def theme_resolver
-      session[:theme] ||= "dark"
+      session[:theme] ||= "light"
     end
 
     def configure_devise_permitted_parameters
@@ -28,11 +28,8 @@ class ApplicationController < ActionController::Base
     end
 
     def set_locale
-      if current_user 
-        I18n.locale =  request.fullpath.split('/')[1]
-      else
-        I18n.locale =   session[:locale] || params[:locale] || I18n.default_locale
-      end
+
+        I18n.locale =  request.fullpath.split('/')[1] if I18n.locale_available? request.fullpath.split('/')[1]
     end
 
     #def default_url_options(options = {})

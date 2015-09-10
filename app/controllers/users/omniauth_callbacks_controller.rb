@@ -25,7 +25,7 @@ class Users::OmniauthCallbacksController < ApplicationController
   		@user.save
   	end
   	sign_in(:user, @user)
-    redirect_to root_path
+    redirect_to root_path(:ru)
     flash[:notice] = "Signed in successfully"
   end
 end

@@ -1,12 +1,12 @@
 <nav class="navbar navbar-default" role="navigation">
-   <ul class="nav navbar-nav navbar-left">
+    <ul class="nav navbar-nav navbar-left">
       <li><%= link_to t('header.home'),    root_path %></li>
       <% if user_signed_in? %>
         <li><%= link_to current_user.nickname, '#' %></li>
-  			<li><%= link_to t('header.sign_out'),    destroy_user_session_path, :method => :delete %></li>
+  			<li><%= link_to t('header.sign_out'),    destroy_user_session_path(:ru), :method => :delete %></li>
   	  <% else %>
-  			<li><%= link_to t('header.sign_in'),    new_user_session_path %></li>
-        <li><%= link_to t('header.sign_up'),    new_user_registration_path %></li>
+  			<li><%= link_to t('header.sign_in'),    new_user_session_path(:ru) %></li>
+        <li><%= link_to t('header.sign_up'),    new_user_registration_path(:ru) %></li>
   	  <%end%>
     </ul>
 

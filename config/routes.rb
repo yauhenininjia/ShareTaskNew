@@ -3,12 +3,14 @@ Rails.application.routes.draw do
     get 'omniauth_callbacks/facebook'
   end
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  #devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" } 
+  devise_for :users, only: :omniauth_callbacks, controllers: {omniauth_callbacks: 'users/omniauth_callbacks'} 
   #devise_for :users
   
   get 'home/switch_theme'
   
   scope "/:locale" do
+    devise_for :users, skip: :omniauth_callbacks
     get 'user/change_locale'
     get 'home/index'
     resources :tasks
