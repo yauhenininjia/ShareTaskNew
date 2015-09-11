@@ -13,7 +13,9 @@ Rails.application.routes.draw do
     devise_for :users, skip: :omniauth_callbacks
     get 'user/change_locale'
     get 'home/index'
-    resources :tasks
+    resources :users, only: [:index, :show, :edit, :update] do
+      resources :tasks
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

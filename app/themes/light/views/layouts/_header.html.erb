@@ -11,7 +11,7 @@
     </ul>
 
    <ul class="nav navbar-nav navbar-right">
-      <li><%= link_to t('header.switch_theme'),    {:controller => "/home", :action => :switch_theme, :theme => :dark, :path => request.original_url} %>
+      <li><%= link_to t('header.switch_theme'),    {:controller => "/home", :action => :switch_theme, :theme => :dark} %>
       </li>
       <li><%= link_to "en",    user_change_locale_path(I18n.locale, :loc => 'en') %>
       </li>

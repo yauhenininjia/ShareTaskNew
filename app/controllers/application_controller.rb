@@ -28,8 +28,11 @@ class ApplicationController < ActionController::Base
     end
 
     def set_locale
-
-        I18n.locale =  request.fullpath.split('/')[1] if I18n.locale_available? request.fullpath.split('/')[1]
+        locale = request.fullpath.split('/')[1]
+        if I18n.locale_available? locale
+          I18n.locale =  request.fullpath.split('/')[1] 
+          session[:locale] = locale
+        end
     end
 
     #def default_url_options(options = {})

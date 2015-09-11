@@ -12,4 +12,8 @@ module ApplicationHelper
     }
     Redcarpet::Markdown.new(renderer, options).render(text).html_safe
   end
+
+  def current_locale
+    session[:locale] || I18n.default_locale
+  end
 end
