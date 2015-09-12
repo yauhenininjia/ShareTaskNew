@@ -7,13 +7,17 @@ class TasksController < ApplicationController
   end
 
   def new
-    @user = current_user
-  	@task = @user.tasks.new
+  	@task = current_user.tasks.new
   end
 
   def create
-  	current_user.tasks.create(task_params)
-  	redirect_to :back
+  	@task = current_user.tasks.new(task_params)
+    if @task.save
+  	  redirect_to :back, notice: 'Successfully saved'
+    else
+      #redirect_to :back, notice: 'Was not saved'
+      render 'new', notice: "Was not saved"
+    end
   end
 
   private

@@ -2,6 +2,8 @@
 <html>
 <head>
   <title>Dark</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag    "dark/all", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "dark/all", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -10,7 +12,7 @@
 
 <header class="page-header"><%= render 'layouts/header' %></header>
   <p class="notice alert-info"><%= notice %></p> <p class="alert"><%= alert %></p>
-  <div class="container text-center">
+  <div class="container ">
     <%= yield %>
   </div>
 
