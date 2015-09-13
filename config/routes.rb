@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   
   scope "/:locale" do
     devise_for :users, skip: :omniauth_callbacks
-    get 'user/change_locale'
+    get 'users/change_locale'
     get 'home/index'
     resources :users, only: [:index, :show, :edit, :update] do
       resources :tasks

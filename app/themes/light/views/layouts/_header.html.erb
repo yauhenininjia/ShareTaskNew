@@ -1,21 +1,20 @@
-<nav class="navbar navbar-default" role="navigation">
-    <ul class="nav navbar-nav navbar-left">
-      <li><%= link_to t('header.home'),    root_path %></li>
-      <% if user_signed_in? %>
-        <li><%= link_to current_user.nickname, '#' %></li>
-  			<li><%= link_to t('header.sign_out'),    destroy_user_session_path(:ru), :method => :delete %></li>
-  	  <% else %>
-  			<li><%= link_to t('header.sign_in'),    new_user_session_path(:ru) %></li>
-        <li><%= link_to t('header.sign_up'),    new_user_registration_path(:ru) %></li>
-  	  <%end%>
-    </ul>
-
-   <ul class="nav navbar-nav navbar-right">
-      <li><%= link_to t('header.switch_theme'),    {:controller => "/home", :action => :switch_theme, :theme => :dark} %>
-      </li>
-      <li><%= link_to "en",    user_change_locale_path(I18n.locale, :loc => 'en') %>
-      </li>
-      <li><%= link_to "ru",    user_change_locale_path(I18n.locale, :loc => 'ru') %>
-      </li>
-   </ul>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <%= link_to t('header.home'), root_path, class: 'navbar-brand' %>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <%= render 'layouts/links' %>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
 </nav>

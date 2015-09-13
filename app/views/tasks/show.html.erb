@@ -1,0 +1,17 @@
+<h1><%= @task.name %></h1>
+ <p>
+    <span class="glyphicon glyphicon-user"></span> <%= link_to @task.user.nickname, user_path(current_locale, @task.user.id)  %>
+</p>
+
+<p>
+	<span class="glyphicon glyphicon-time"></span> Posted on  <%= l @task.created_at %>
+</p>
+
+<hr>
+
+                <!-- Preview Image -->
+                <!--<img class="img-responsive" src="http://placehold.it/900x300" alt="">-->
+<hr>
+<%= markdown @task.description %>
+
+<hr>

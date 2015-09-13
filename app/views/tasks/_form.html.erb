@@ -1,3 +1,5 @@
+<hr>
+
 <%= form_for (:task), url: user_tasks_path(current_locale, current_user.id), method: :post, :html => {:role => 'form', :class => 'form'} do |f| %>
 
   <% if @task.errors.any? %>
@@ -14,6 +16,20 @@
 	</div>
   <% end %>
 
+  <%= label_tag 'Section' %>
+  <br>
+  <%= f.radio_button :section, :ror, {checked: true} %>
+  <%= f.label :section_ror, 'Ruby on Rails' %>
+
+  <%= f.radio_button :section, :java %>
+  <%= f.label :section_java, 'Java' %>
+
+  <%= f.radio_button :section, :python %>
+  <%= f.label :section_python, 'Python' %>
+
+  <%= f.radio_button :section, :net %>
+  <%= f.label :section_net, '.NET' %>
+
   <div class="form-group">
     <%= f.label :name %>
     <%= f.text_field :name, :class => 'form-control input-sm' %>
@@ -25,7 +41,7 @@
   </div>
  
   <div class="form-group">
-    <%= f.submit :class => "btn btn-success input-sm" %>
+    <%= f.submit :class => "btn btn-primary btn-sm" %>
   </div>
 
 <% end %>

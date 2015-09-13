@@ -10,11 +10,17 @@
 </head>
 <body>
 
-<header class="page-header"><%= render 'layouts/header' %></header>
-  <p class="notice alert-info"><%= notice %></p> <p class="alert"><%= alert %></p>
-  <div class="container ">
-    <%= yield %>
+<%= render 'layouts/header' %>
+
+<p class="notice alert-info"><%= notice %></p> <p class="alert"><%= alert %></p>
+<div class="container ">
+  <div class="row">
+      <!-- Blog Post Content Column -->
+      <div class="col-lg-8">
+  <%= yield %>
+      </div>
   </div>
+</div>
 
 </body>
 </html>

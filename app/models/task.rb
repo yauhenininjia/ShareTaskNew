@@ -5,4 +5,6 @@ class Task < ActiveRecord::Base
   has_many :task_tags
 
   validates :name, presence: true
+
+  enumerated :section, [ :ror, :java, :python, :net ]
 end

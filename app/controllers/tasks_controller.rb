@@ -3,7 +3,6 @@ class TasksController < ApplicationController
 
   def index
   	@tasks = current_user.tasks.all
-    render @tasks
   end
 
   def new
@@ -12,17 +11,21 @@ class TasksController < ApplicationController
 
   def create
   	@task = current_user.tasks.new(task_params)
+    #render text: params
     if @task.save
   	  redirect_to :back, notice: 'Successfully saved'
     else
-      #redirect_to :back, notice: 'Was not saved'
       render 'new', notice: "Was not saved"
     end
   end
 
+  def show
+    @task = Task.find(params[:id])
+  end
+
   private
     def task_params
-      params.require(:task).permit(:name, :description)
+      params.require(:task).permit(:section, :name, :description)
     end
 
 end

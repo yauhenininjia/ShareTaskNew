@@ -1,0 +1,18 @@
+<ul class="nav navbar-nav">
+  <% if user_signed_in? %>
+    <li><%= link_to current_user.nickname, '#' %></li>
+    <li><%= link_to t('header.sign_out'), destroy_user_session_path(:ru), :method => :delete %></li>
+  <% else %>
+    <li><%= link_to t('header.sign_in'), new_user_session_path(:ru) %></li>
+    <li><%= link_to t('header.sign_up'), new_user_registration_path(:ru) %></li>
+  <%end%>
+</ul>
+
+<ul class="nav navbar-nav navbar-right">
+  <li><%= link_to t('header.switch_theme'),    {:controller => "/home", :action => :switch_theme, :theme => :dark} %>
+  </li>
+  <li><%= link_to image_tag("en.png", :width => 34, :height => 20), users_change_locale_path(I18n.locale, :loc => 'en') %>
+  </li>
+  <li><%= link_to image_tag("ru.png", :width => 34, :height => 20), users_change_locale_path(I18n.locale, :loc => 'ru') %>
+  </li>
+</ul>
