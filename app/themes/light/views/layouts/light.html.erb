@@ -6,24 +6,23 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag    "light/all", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "light/all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag("jquery.ui.widget", "jquery.iframe-transport", 
-                              "jquery.fileupload", "jquery.cloudinary") %>
+  <%= javascript_include_tag("jquery.ui.widget", "jquery.iframe-transport", "jquery.fileupload", "jquery.cloudinary") %>
   <%= cloudinary_js_config %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= render 'layouts/header' %>
+  <%= render 'layouts/header' %>
 
-<p class="notice alert-info"><%= notice %></p> <p class="alert"><%= alert %></p>
-<div class="container ">
-  <div class="row">
+  <p class="notice alert-info"><%= notice %></p> <p class="alert"><%= alert %></p>
+  <div class="container ">
+    <div class="row">
       <!-- Blog Post Content Column -->
       <div class="col-lg-8">
-  <%= yield %>
+      <%= yield %>
       </div>
+    </div>
   </div>
-</div>
 
 </body>
 </html>

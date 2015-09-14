@@ -11,16 +11,25 @@ class TasksController < ApplicationController
 
   def create
   	@task = current_user.tasks.new(task_params)
-    render text: params
-    #if @task.save
-  	#  redirect_to :back, notice: 'Successfully saved'
-    #else
-    #  render 'new', notice: "Was not saved"
-    #end
+    if params[:task][:image]
+      params[:task][:image].each do |image|
+        @task.images.new(:url => image)
+      end
+    end
+
+    if @task.save
+  	  redirect_to :back, notice: 'Successfully saved'
+    else
+      render 'new', notice: "Was not saved"
+    end
   end
 
   def show
     @task = Task.find(params[:id])
+  end
+
+  def destroy
+
   end
 
 

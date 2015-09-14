@@ -17,3 +17,4 @@
 // require cloudinary/processing // Optional - client side processing (resizing and validation)
 //= require_tree .
 // require turbolinks // Optional - turbolinks support (add = to enable)
+//= require js-routes

@@ -1,8 +1,9 @@
 class Task < ActiveRecord::Base
   belongs_to :user
-  has_many :answers
-  has_many :comments
-  has_many :task_tags
+  has_many :answers, :dependent => :destroy
+  has_many :comments, :dependent => :destroy
+  has_many :task_tags, :dependent => :destroy
+  has_many :images, :dependent => :destroy
 
   validates :name, presence: true
 
