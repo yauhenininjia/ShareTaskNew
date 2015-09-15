@@ -1,0 +1,26 @@
+<div class="col-md-4">
+    <!-- Blog Categories Well -->
+    <div class="bar well">
+        <h4>Tag cloud</h4>
+        <div class="row">
+            <div class="col-lg-12">
+                <ul id="tagcloud">
+                    <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+                        <li data-weight = <%= 6 %> > <%= link_to tag.name, search_tasks_by_tag_user_tasks_path(current_locale, current_user.id, tag: tag.name), :class => css_class %> </li>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+</div>
+
+
+<script type="text/javascript" src="/assets/jquery.tx3-tag-cloud.js" ></script> 
+<script type="text/javascript">
+$(document).ready(function(){
+$("#tagcloud").tx3TagCloud({
+multiplier: 5 // default multiplier is "1"
+});
+});
+</script>

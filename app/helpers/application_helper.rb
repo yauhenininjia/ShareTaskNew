@@ -16,4 +16,6 @@ module ApplicationHelper
   def current_locale
     session[:locale] || I18n.default_locale
   end
+  
+  include ActsAsTaggableOn::TagsHelper
 end

@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!
+  before_action :tag_cloud
   autocomplete :tag, :name, :class_name => 'ActsAsTaggableOn::Tag'
 
   def index
@@ -48,6 +49,7 @@ class TasksController < ApplicationController
     @tasks = Task.where section: params[:section]
     render 'index'
   end
+
 
   private
     def task_params

@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   theme :theme_resolver
   before_action :set_locale
+  before_action :tag_cloud
   helper_method :tag_separator
 
   protected
@@ -41,5 +42,12 @@ class ApplicationController < ActionController::Base
 
   def tag_separator
     ', '
+  end
+
+
+  def tag_cloud
+    @tags = Task.tag_counts_on(:tags)
+    puts (Task.tagged_with @tags.last).count
+    puts '!!!!!!!!!!!!'
   end
 end

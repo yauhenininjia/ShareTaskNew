@@ -18,9 +18,11 @@
   <div class="container ">
     <div class="row">
       <!-- Blog Post Content Column -->
-      <div class="col-lg-8">
+        <div class="col-lg-8">
       <%= yield %>
       </div>
+      <%= render 'layouts/sections' %>
+      <%= render 'layouts/tag_cloud' %>
     </div>
   </div>
 
