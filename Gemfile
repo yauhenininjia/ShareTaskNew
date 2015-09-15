@@ -54,3 +54,6 @@ gem 'redcarpet'
 gem 'enumerated'
 gem 'cloudinary'
 gem 'js-routes'
+gem 'acts-as-taggable-on'
+gem 'rails4-autocomplete'
+gem "jquery-ui-rails"

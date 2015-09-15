@@ -15,7 +15,11 @@ Rails.application.routes.draw do
     get 'users/delete_image'
     get 'home/index'
     resources :users, only: [:index, :show, :edit, :update] do
-      resources :tasks
+      resources :tasks do
+        get :autocomplete_tag_name, :on => :collection
+        get :search_tasks_by_tag, :on => :collection
+        get :search_tasks_by_section, :on => :collection
+      end
     end
   end
 

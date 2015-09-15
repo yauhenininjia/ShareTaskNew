@@ -18,3 +18,5 @@
 //= require_tree .
 // require turbolinks // Optional - turbolinks support (add = to enable)
 //= require js-routes
+//= require autocomplete-rails
+//= require jquery-ui

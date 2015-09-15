@@ -1,7 +1,7 @@
 window.onload = function () {
   document.getElementById("upload_widget_opener").addEventListener("click", function() {
 
-    cloudinary.openUploadWidget({ cloud_name: 'dy4pzclcw', upload_preset: 'p587tipa', form: 'form', field_name: 'task[image][]' }, 
+    cloudinary.openUploadWidget({ cloud_name: 'dy4pzclcw', upload_preset: 'p587tipa', form: 'form', field_name: 'task[images][]' }, 
       function(error, el) { 
         console.log(el);
         el.forEach(function(el, i, arr) {

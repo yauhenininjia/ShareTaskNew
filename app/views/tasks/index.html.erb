@@ -1,15 +1,3 @@
-<table class = 'table table-hover'>
-  <tr>
-    <th>Section</th>
-    <th>Name</th>
-  </tr>
- 
-  <% @tasks.each do |task| %>
-      <tr>
-        <td><%= task.section %></td>
-        <td><%= task.name %></td>
-        <td>  
-          <%= raw (markdown task.description).truncate(25) %></td>  
-      </tr>
-  <% end %>
-</table>
+<% @tasks.each do |task| %>
+  <%= render task %>
+<% end %>

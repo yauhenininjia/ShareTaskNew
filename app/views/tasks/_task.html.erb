@@ -1,0 +1,29 @@
+<h1><%= link_to task.name, user_task_path(current_locale, current_user.id, task.id) %></h1>
+<hr> 
+Section: <%= link_to task.section, search_tasks_by_section_user_tasks_path(section: task.section) %>
+<br>
+Tags:
+<% task.tags.each do |tag| %>
+	<%= link_to tag, search_tasks_by_tag_user_tasks_path(tag: tag.name) %>
+<% end %>
+<hr>
+
+ <p>
+    <span class="glyphicon glyphicon-user"></span> <%= link_to task.user.nickname, user_path(current_locale, task.user.id)  %>
+</p>
+
+<p>
+	<span class="glyphicon glyphicon-time"></span> Posted on  <%= l task.created_at %>
+</p>
+                <!-- Preview Image -->
+                <!--<img class="img-responsive" src="http://placehold.it/900x300" alt="">-->
+<hr>
+<%= markdown task.description %>
+<hr>
+<% task.images.each do |image| %>
+	<div class="col-sm-6 col-md-3">
+      	<div class="thumbnail">
+			<%= link_to image_tag(image.url), image.url %>
+		</div>
+	</div>
+<% end %>

@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!
+  autocomplete :tag, :name, :class_name => 'ActsAsTaggableOn::Tag'
 
   def index
   	@tasks = current_user.tasks.all
@@ -14,6 +15,12 @@ class TasksController < ApplicationController
     if params[:task][:image]
       params[:task][:image].each do |image|
         @task.images.new(:url => image)
+      end
+    end
+
+    if params[:task][:tags]
+      params[:task][:tags].first.split(tag_separator).each do |tag|
+        @task.tag_list.add(tag)
       end
     end
 
@@ -32,10 +39,19 @@ class TasksController < ApplicationController
 
   end
 
+  def search_tasks_by_tag
+    @tasks = Task.tagged_with params[:tag]
+    render 'index'
+  end
+
+  def search_tasks_by_section
+    @tasks = Task.where section: params[:section]
+    render 'index'
+  end
 
   private
     def task_params
-      params.require(:task).permit(:section, :name, :description)
+      params.require(:task).permit(:section, :name, :description, :images => [] )
     end
 
 end

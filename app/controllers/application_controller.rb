@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   theme :theme_resolver
   before_action :set_locale
- 
+  helper_method :tag_separator
 
   protected
 
@@ -39,4 +39,7 @@ class ApplicationController < ActionController::Base
     #  { locale: I18n.locale }.merge options
     #end
 
+  def tag_separator
+    ', '
+  end
 end
