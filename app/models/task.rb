@@ -9,4 +9,5 @@ class Task < ActiveRecord::Base
   validates :name, presence: true
 
   enumerated :section, [ :ror, :java, :python, :net ]
+  letsrate_rateable 'description'
 end

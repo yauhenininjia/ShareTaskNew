@@ -6,7 +6,7 @@
             <div class="col-lg-12">
                 <ul id="tagcloud">
                     <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
-                        <li data-weight = <%= 6 %> > <%= link_to tag.name, search_tasks_by_tag_user_tasks_path(current_locale, current_user.id, tag: tag.name), :class => css_class %> </li>
+                        <li data-weight = <%= 6 %> > <%= link_to tag.name, tasks_search_by_tag_path(current_locale, tag: tag.name), :class => css_class %> </li>
                     <% end %>
                 </ul>
             </div>

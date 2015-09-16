@@ -10,4 +10,5 @@ class User < ActiveRecord::Base
          :omniauthable
   validates :nickname, presence: true, length: { maximum: 50 }, uniqueness: true
   
+  letsrate_rater
 end

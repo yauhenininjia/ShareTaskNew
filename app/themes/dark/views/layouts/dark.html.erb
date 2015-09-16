@@ -6,7 +6,8 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag    "dark/all", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "dark/all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag("jquery.ui.widget", "jquery.iframe-transport", "jquery.fileupload", "jquery.cloudinary") %>
+  <%= javascript_include_tag("jquery.raty", "jquery.ui.widget", "jquery.iframe-transport", "jquery.fileupload", "jquery.cloudinary") %>
+  <script src = '/assets/letsrate.js.erb'></script>
   <%= cloudinary_js_config %>
   <%= csrf_meta_tags %>
 </head>

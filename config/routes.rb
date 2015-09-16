@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post '/rate' => 'rater#create', :as => 'rate'
   namespace :users do
     get 'omniauth_callbacks/facebook'
   end
@@ -14,11 +15,11 @@ Rails.application.routes.draw do
     get 'users/change_locale'
     get 'users/delete_image'
     get 'home/index'
+    get 'tasks/search_by_tag'
+    get 'tasks/search_by_section'
     resources :users, only: [:index, :show, :edit, :update] do
       resources :tasks do
         get :autocomplete_tag_name, :on => :collection
-        get :search_tasks_by_tag, :on => :collection
-        get :search_tasks_by_section, :on => :collection
       end
     end
   end

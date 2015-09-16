@@ -47,7 +47,5 @@ class ApplicationController < ActionController::Base
 
   def tag_cloud
     @tags = Task.tag_counts_on(:tags)
-    puts (Task.tagged_with @tags.last).count
-    puts '!!!!!!!!!!!!'
   end
 end

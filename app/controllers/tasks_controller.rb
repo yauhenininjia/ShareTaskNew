@@ -25,6 +25,12 @@ class TasksController < ApplicationController
       end
     end
 
+    if params[:task][:answers]
+      params[:task][:answers].each do |answer|
+        @task.answers.new(:body => answer)
+      end
+    end
+
     if @task.save
   	  redirect_to :back, notice: 'Successfully saved'
     else
@@ -40,12 +46,12 @@ class TasksController < ApplicationController
 
   end
 
-  def search_tasks_by_tag
+  def search_by_tag
     @tasks = Task.tagged_with params[:tag]
     render 'index'
   end
 
-  def search_tasks_by_section
+  def search_by_section
     @tasks = Task.where section: params[:section]
     render 'index'
   end
