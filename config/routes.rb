@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :edit, :update] do
       resources :tasks do
         get :autocomplete_tag_name, :on => :collection
+        resources :comments
       end
     end
   end

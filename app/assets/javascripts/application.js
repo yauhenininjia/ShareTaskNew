@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require jquery
-// require jquery.turbolinks // Optional - turbolinks support (add = to enable)
 //= require jquery_ujs
 //= require cloudinary
 // require cloudinary/processing // Optional - client side processing (resizing and validation)
@@ -19,7 +18,6 @@
 //= require jquery.raty
 //= require letsrate
 //= require_tree .
-// require turbolinks // Optional - turbolinks support (add = to enable)
 //= require js-routes
 //= require autocomplete-rails
 //= require jquery-ui

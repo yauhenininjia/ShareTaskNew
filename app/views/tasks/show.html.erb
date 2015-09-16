@@ -1,1 +1,6 @@
 <%= render @task, locals: {task: @task} %>
+
+<hr>
+<%= render 'comments/form' %>
+<hr>
+<%= render @task.comments %>
