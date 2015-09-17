@@ -7,7 +7,7 @@
 <%= link_to image_tag("vkontakte.png", :width => 34, :height => 34), user_omniauth_authorize_path(:vkontakte) %>
 <br><br>
 <% if current_user %>
-  <%= button_to "New task", new_user_task_path(current_locale, current_user), :class => 'btn btn-success input-sm', method: :get %>
+  
 <% end %>
 
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">

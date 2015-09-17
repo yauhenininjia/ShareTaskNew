@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   post '/rate' => 'rater#create', :as => 'rate'
-  namespace :users do
-    get 'omniauth_callbacks/facebook'
-  end
+  #namespace :users do
+  #  get 'omniauth_callbacks/facebook'
+  #end
 
   #devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" } 
   devise_for :users, only: :omniauth_callbacks, controllers: {omniauth_callbacks: 'users/omniauth_callbacks'} 

@@ -5,7 +5,6 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag    "dark/all", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "dark/all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag("jquery.raty", "jquery.ui.widget", "jquery.iframe-transport", "jquery.fileupload", "jquery.cloudinary") %>
   <script src = '/assets/letsrate.js.erb'></script>
   <%= cloudinary_js_config %>
@@ -15,16 +14,18 @@
 
   <%= render 'layouts/header' %>
 
-  <p class="notice alert-info"><%= notice %></p> <p class="alert"><%= alert %></p>
   <div class="container ">
     <div class="row">
+      <% if notice %> <p class="alert alert-info"><%= notice %></p> <% end %>
+      <% if alert %> <p class="alert alert-danger"><%= alert %></p> <% end %>
       <!-- Blog Post Content Column -->
-        <div class="col-lg-8">
-      <%= yield %>
+      <div class="col-lg-8">
+        <%= yield %>
       </div>
       <%= render 'layouts/sections' %>
       <%= render 'layouts/tag_cloud' %>
     </div>
+    <%= render 'layouts/footer' %>
   </div>
 
 </body>

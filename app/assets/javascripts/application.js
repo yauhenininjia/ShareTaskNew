@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require cloudinary
 // require cloudinary/processing // Optional - client side processing (resizing and validation)
-//= require jquery.tx3-tag-cloud
 //= require jquery.raty
 //= require letsrate
 //= require_tree .

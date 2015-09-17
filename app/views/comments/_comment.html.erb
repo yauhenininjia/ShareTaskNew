@@ -1,12 +1,9 @@
  <% if comment.id %>
     <div class="media">
-        <a class="pull-left" href="#">
-            <img class="media-object" src="http://placehold.it/64x64" alt="">
-        </a>
         <div class="media-body">
-            <h4 class="media-heading"><%= link_to comment.user, user_path(current_locale, comment.user.id) %>
-
-                <small><%= l comment.created_at %></small>
+            <h4 class="media-heading"><span class="glyphicon glyphicon-user"></span> <%= link_to comment.user.nickname, user_path(current_locale, comment.user.id) %>
+                <br>
+                <small><span class="glyphicon glyphicon-time"></span> <%= l comment.created_at %></small>
             </h4>
             <%= comment.body %>
         </div>
