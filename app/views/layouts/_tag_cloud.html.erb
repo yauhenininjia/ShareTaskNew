@@ -6,7 +6,7 @@
             <div class="col-lg-12">
                 <ul id="tagcloud">
                     <% @tags.each do |tag| %>
-                        <li data-weight = <%= tag.taggings_count %> > <%= link_to tag.name, tasks_search_by_tag_path(current_locale, tag: tag.name) %> </li>
+                        <li data-weight = <%= tag.taggings_count %> > <%= link_to tag.name, tasks_search_by_tag_path(current_locale, tag: tag.name), title: tag.taggings_count %> </li>
                     <% end %>
                 </ul>
             </div>

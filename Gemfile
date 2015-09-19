@@ -58,3 +58,4 @@ gem 'acts-as-taggable-on'
 gem 'rails4-autocomplete'
 gem "jquery-ui-rails"
 gem 'letsrate'
+gem 'cancancan'

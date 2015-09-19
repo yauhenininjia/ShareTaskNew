@@ -1,4 +1,13 @@
-<h1><%= link_to task.name, task_path(current_locale, task.id) %></h1>
+<h1><%= link_to task.name, task_path(current_locale, task.id) %>
+
+<% if can? :destroy, task %>
+  	<%= link_to user_task_path(current_locale, task.user.id, task), method: :delete, data: {confirm: 'Are you sure?'} do %>
+		<span class="glyphicon glyphicon-remove navbar-text navbar-right" title='Remove task'></span>
+  	<% end %>
+<% end %>
+
+</h1>
+
 <hr> 
 Section: <%= link_to task.section, tasks_search_by_section_path(current_locale, section: task.section) %>
 <br>
@@ -31,7 +40,6 @@ Tags:
 <%= rating_for task, "description" %>
 <div class='rating' data-id= <%= task.id %> > <%= task.rates(:description).average(:stars).to_f.round(1) %> </div>
 
-<%= link_to 'Destroy', user_task_path(current_locale, task.user.id, task), method: :delete, data: {comfirm: '?'} %>
 
 <br><br>
 

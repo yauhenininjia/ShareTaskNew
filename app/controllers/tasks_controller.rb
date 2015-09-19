@@ -36,7 +36,7 @@ class TasksController < ApplicationController
     end
 
     if @task.save
-  	  redirect_to :back, notice: 'Successfully saved'
+  	  redirect_to task_path(current_locale, @task.id), notice: 'Successfully saved'
     else
       render 'new', notice: "Was not saved"
     end

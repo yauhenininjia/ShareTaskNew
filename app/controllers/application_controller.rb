@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   theme :theme_resolver
   before_action :set_locale
   before_action :tag_cloud
-  helper_method :tag_separator
+  helper_method :tag_separator, :currnet_locale
 
   protected
 
@@ -44,6 +44,9 @@ class ApplicationController < ActionController::Base
     ', '
   end
 
+  def current_locale
+    session[:locale] || I18n.default_locale
+  end
 
   def tag_cloud
     @tags = Task.tag_counts_on(:tags)
