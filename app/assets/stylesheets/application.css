@@ -15,9 +15,9 @@
  */
 
 .css1 { font-size: 1.0em; }
-.css2 { font-size: 1.2em; }
-.css3 { font-size: 1.4em; }
-.css4 { font-size: 1.6em; }
+.css2 { font-size: 1.05em; }
+.css3 { font-size: 1.15em; }
+.css4 { font-size: 1.2em; }
 body {
     padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }

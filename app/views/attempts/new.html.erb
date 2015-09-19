@@ -1,0 +1,13 @@
+<%= form_for (:attempt), url: new_attempt_path(current_locale), :html => {:role => 'form', :class => "form-inline"} do |f| %>
+	<div class="form-group">
+		<% if !answered? task %>
+	    	<%= f.text_field :answer, '',  {:class => 'form-control input-sm', placeholder: 'Answer'} %>
+	    <% end %>
+	</div>
+
+	<div class="form-group">
+		<% if !answered? task %>
+	    	<%= f.submit :class => 'btn btn-primary' %>
+	    <% end %>
+	</div>
+<% end %>

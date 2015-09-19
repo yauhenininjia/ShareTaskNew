@@ -1,3 +1,2 @@
-<% @tasks.each do |task| %>
-  <%= render task %>
-<% end %>
+<% @tasks.reverse_order! %>
+<%= render @tasks %>

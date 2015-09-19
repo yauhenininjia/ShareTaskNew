@@ -1,0 +1,7 @@
+console.log('<%=  @attempt.answered %>')
+'<% if @attempt.answered %>'
+	$('form[data-task-id='+'<%= @attempt.task_id %>'+']').html('<p class=text-success> '+'<%= @message %>'+' </p>');
+'<% else %>'
+	$('form[data-task-id='+'<%= @attempt.task_id %>'+']').find('p').remove();
+	$('form[data-task-id='+'<%= @attempt.task_id %>'+']').append('<p class=text-warning> '+'<%= @message %>'+' </p>');
+'<% end %>'

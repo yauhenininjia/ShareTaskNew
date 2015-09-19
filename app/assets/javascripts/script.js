@@ -53,7 +53,7 @@ $(document).ready(function() {
         e.preventDefault();
         if(x < max_fields){ //max input box allowed
             x++; //text box increment
-            $(wrapper).append('<div><input type="text" name="task[answers][]" class = " form-control input-sm"/><a href="#" class="remove_field">Remove</a></div>'); //add input box
+            $(wrapper).append('<div><input type="text" name="task[answers][]" class = " form-control input-sm" placeholder="Answer #'+x+'"/><a href="#" class="remove_field">Remove</a></div>'); //add input box
         }
     });
     
@@ -65,6 +65,12 @@ $(document).ready(function() {
 
 $(document).ready(function(){
 $("#tagcloud").tx3TagCloud({
-multiplier: 5 // default multiplier is "1"
+multiplier: 1 // default multiplier is "1"
+});
+});
+
+$(document).ready(function(){
+  $('#autocomplete_tag').bind('railsAutocomplete.select', function(event, data){
+  $('#form').append('<input type=hidden name=task[tags][] value="'+data.item.value+'"/>');
 });
 });

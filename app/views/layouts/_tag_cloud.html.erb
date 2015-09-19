@@ -5,8 +5,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <ul id="tagcloud">
-                    <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
-                        <li data-weight = <%= 6 %> > <%= link_to tag.name, tasks_search_by_tag_path(current_locale, tag: tag.name), :class => css_class %> </li>
+                    <% @tags.each do |tag| %>
+                        <li data-weight = <%= tag.taggings_count %> > <%= link_to tag.name, tasks_search_by_tag_path(current_locale, tag: tag.name) %> </li>
                     <% end %>
                 </ul>
             </div>
@@ -16,4 +16,4 @@
 </div>
 
 
-<script type="text/javascript" src="/assets/jquery.tx3-tag-cloud.js" ></script> 
+<!--<script type="text/javascript" src="/assets/jquery.tx3-tag-cloud.js" ></script> -->

@@ -12,9 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require cloudinary
 // require cloudinary/processing // Optional - client side processing (resizing and validation)
-//= require jquery.raty
 //= require letsrate
 //= require_tree .
 //= require js-routes

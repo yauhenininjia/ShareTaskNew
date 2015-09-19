@@ -5,6 +5,7 @@ class Task < ActiveRecord::Base
   has_many :answers, :dependent => :destroy
   has_many :comments, :dependent => :destroy
   has_many :images, :dependent => :destroy
+  has_many :attempts, :dependent => :destroy
 
   validates :name, presence: true
 

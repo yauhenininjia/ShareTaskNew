@@ -4,11 +4,15 @@ class TasksController < ApplicationController
   autocomplete :tag, :name, :class_name => 'ActsAsTaggableOn::Tag'
 
   def index
-  	@tasks = current_user.tasks.all
+  	@tasks = Task.all
   end
 
   def new
   	@task = current_user.tasks.new
+  end
+
+  def edit
+    @task = Task.find(params[:id])
   end
 
   def create
@@ -38,12 +42,18 @@ class TasksController < ApplicationController
     end
   end
 
+  def update
+    render text: params
+  end
+
   def show
     @task = Task.find(params[:id])
   end
 
   def destroy
-
+    task = Task.find params[:id]
+    task.destroy
+    redirect_to tasks_path
   end
 
   def search_by_tag

@@ -1,16 +1,8 @@
-<div class="col-md-4" >
-    <!-- Blog Categories Well -->
-    <div class="bar well">
+<div class="col-lg-6">
         <h4>Task sections</h4>
-        <div class="row">
-            <div class="col-lg-6">
-                <ul class="list-unstyled">
-                    <% Task.sections.each do |section| %>
-                        <li> <%= link_to section.first, tasks_search_by_section_path(current_locale, section: section.first) %> </li>
-                    <% end %>
-                </ul>
-            </div>
-        </div>
-        <!-- /.row -->
-    </div>
+    <ul class="list-unstyled">
+        <% Task.sections.each do |section| %>
+            <li> <%= link_to section.first, tasks_search_by_section_path(current_locale, section: section.first) %> </li>
+        <% end %>
+    </ul>
 </div>

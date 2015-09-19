@@ -16,7 +16,7 @@
     	// DEFAULT SETTINGS
     	//
     	settings = $.extend({
-    		multiplier		: 1
+    		multiplier: 1
     	}, options);
     	main(this);
 

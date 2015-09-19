@@ -18,4 +18,9 @@ module ApplicationHelper
   end
   
   include ActsAsTaggableOn::TagsHelper
+
+  def answered?(task)
+    current_user.attempts.pluck(:user_id, :task_id, :answered).include? [current_user.id, task.id, true]
+  end
+
 end

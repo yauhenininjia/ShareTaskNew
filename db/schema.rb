@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150916162218) do
+ActiveRecord::Schema.define(version: 20150918194442) do
 
   create_table "answers", force: :cascade do |t|
     t.string   "body",       limit: 255
@@ -21,6 +21,17 @@ ActiveRecord::Schema.define(version: 20150916162218) do
   end
 
   add_index "answers", ["task_id"], name: "index_answers_on_task_id", using: :btree
+
+  create_table "attempts", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "task_id",    limit: 4
+    t.boolean  "answered",   limit: 1
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "attempts", ["task_id"], name: "index_attempts_on_task_id", using: :btree
+  add_index "attempts", ["user_id"], name: "index_attempts_on_user_id", using: :btree
 
   create_table "comments", force: :cascade do |t|
     t.string   "body",       limit: 255
@@ -136,6 +147,8 @@ ActiveRecord::Schema.define(version: 20150916162218) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "answers", "tasks"
+  add_foreign_key "attempts", "tasks"
+  add_foreign_key "attempts", "users"
   add_foreign_key "comments", "tasks"
   add_foreign_key "comments", "users"
   add_foreign_key "images", "tasks"

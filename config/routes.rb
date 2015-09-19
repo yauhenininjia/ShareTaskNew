@@ -17,9 +17,11 @@ Rails.application.routes.draw do
     get 'home/index'
     get 'tasks/search_by_tag'
     get 'tasks/search_by_section'
+    get 'tasks/autocomplete_tag_name'
+    resources :tasks, only: [:index, :show, :new, :create, :edit, :update]
+    resources :attempts, only: [:new, :create]
     resources :users, only: [:index, :show, :edit, :update] do
-      resources :tasks do
-        get :autocomplete_tag_name, :on => :collection
+      resources :tasks, only: [ :destroy] do
         resources :comments
       end
     end
