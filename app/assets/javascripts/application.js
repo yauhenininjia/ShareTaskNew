@@ -14,6 +14,8 @@
 //= require jquery_ujs
 // require cloudinary/processing // Optional - client side processing (resizing and validation)
 //= require letsrate
+//= require jquery.purr
+//= require best_in_place
 //= require_tree .
 //= require js-routes
 //= require autocomplete-rails

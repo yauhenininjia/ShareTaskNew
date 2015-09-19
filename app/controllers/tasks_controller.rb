@@ -66,6 +66,11 @@ class TasksController < ApplicationController
     render 'index'
   end
 
+  def search_by_user
+    @tasks = Task.where user_id: params[:user_id]
+    render 'index'
+  end
+
 
   private
     def task_params

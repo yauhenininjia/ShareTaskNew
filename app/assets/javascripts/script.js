@@ -74,3 +74,7 @@ $(document).ready(function(){
   $('#form').append('<input type=hidden name=task[tags][] value="'+data.item.value+'"/>');
 });
 });
+
+$(document).ready(function(){
+  $('.best_in_place').bind("ajax:success", function () {$(this).effect('highlight'); });
+});

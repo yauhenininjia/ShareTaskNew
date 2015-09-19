@@ -1,6 +1,6 @@
 <ul class="nav navbar-nav">
   <% if user_signed_in? %>
-    <li><%= link_to current_user.nickname, '#' %></li>
+    <li><%= link_to 'Profile', user_path(current_locale, current_user.id) %></li>
     <li><%= link_to t('header.sign_out'), destroy_user_session_path(:ru), :method => :delete %></li>
   <% else %>
     <li><%= link_to t('header.sign_in'), new_user_session_path(:ru) %></li>

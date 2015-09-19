@@ -1,0 +1,31 @@
+<h1><%= @user.nickname %></h1>
+	<table class='table'>
+		<tr>
+			<td>
+	  			NickName:
+			</td>
+			<td> 
+				<% if can? :edit, @user %>
+					<a href='#'><%= best_in_place @user, :nickname, :path => user_path(current_locale, @user.id), :class => 'editable editable-click' %></a>
+				<% else %>
+					<%= @user.nickname %>
+				<% end %>
+			</td>
+		</tr>
+		<tr>
+			<td>
+	  			Tasks:
+			</td>
+			<td> 
+				<%= link_to @user.tasks.count, tasks_search_by_user_path(current_locale, user_id: @user.id) %>
+			</td>
+		</tr>
+		<tr>
+			<td>
+	  			Rating:
+			</td>
+			<td> 
+				<%= @rating.to_f %>
+			</td>
+		</tr>
+	</table>
