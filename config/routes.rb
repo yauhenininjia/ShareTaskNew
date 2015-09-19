@@ -14,12 +14,14 @@ Rails.application.routes.draw do
     devise_for :users, skip: :omniauth_callbacks
     get 'users/change_locale'
     get 'users/delete_image'
+    get 'users/top'
     get 'home/index'
     get 'search/tasks_by_tag'
     get 'search/tasks_by_section'
     get 'search/tasks_by_user'
     get 'search/search'
     get 'tasks/autocomplete_tag_name'
+    resources :tags, only: [:index]
     resources :tasks, only: [:index, :show, :new, :create, :edit, :update]
     resources :attempts, only: [:new, :create]
     resources :users, only: [:index, :show, :edit, :update] do

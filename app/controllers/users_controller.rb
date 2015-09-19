@@ -3,9 +3,15 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @rating = 0.0
-    @user.tasks.each {|t| @rating += t.rates(:description).average :stars unless t.rates(:description).average(:stars).nil?} 
-    @rating /= @user.tasks.count
+    #@rating = 0.0
+    #@user.tasks.each {|t| @rating += t.rates(:description).average :stars unless t.rates(:description).average(:stars).nil?} 
+    @rating = rating @user#/= @user.tasks.count
+    @answered = Attempt.where(user_id: params[:id], answered: true).count
+    @attempts = Attempt.where(user_id: params[:id]).count
+    @efficiency = (@answered / @attempts).round(1) if @attempts != 0
+  end
+
+  def edit
   end
 
   def update
@@ -30,8 +36,24 @@ class UsersController < ApplicationController
     end
   end
 
+  def top
+    @users = User.all.to_a
+    @users.sort_by! {|u| rating u}
+    @users = @users.take(10)
+  end
+
   private
     def user_params
       params.require(:user).permit(:nickname)
+    end
+
+    def rating(user)
+      rating = 0.0
+      user.tasks.each {|t| rating += t.rates(:description).average :stars unless t.rates(:description).average(:stars).nil?} 
+      if user.tasks.count != 0
+        rating /= user.tasks.count 
+      else
+        rating = 0.0
+      end
     end
 end

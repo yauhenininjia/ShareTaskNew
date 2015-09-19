@@ -34,21 +34,18 @@ class ApplicationController < ActionController::Base
           I18n.locale =  request.fullpath.split('/')[1] 
           session[:locale] = locale
         end
+    end 
+
+    def tag_separator
+      ', '
     end
 
-    #def default_url_options(options = {})
-    #  { locale: I18n.locale }.merge options
-    #end
+    def current_locale
+      session[:locale] || I18n.default_locale
+    end
 
-  def tag_separator
-    ', '
-  end
-
-  def current_locale
-    session[:locale] || I18n.default_locale
-  end
-
-  def tag_cloud
-    @tags = Task.tag_counts_on(:tags)
-  end
+    def tag_cloud
+      #@tags = Task.tag_counts_on(:tags)
+      @tags = ActsAsTaggableOn::Tag.most_used(20)
+    end
 end

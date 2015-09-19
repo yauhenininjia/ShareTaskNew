@@ -1,31 +1,59 @@
-<h1><%= @user.nickname %></h1>
-	<table class='table'>
-		<tr>
-			<td>
-	  			NickName:
-			</td>
-			<td> 
-				<% if can? :edit, @user %>
-					<a href='#'><%= best_in_place @user, :nickname, :path => user_path(current_locale, @user.id), :class => 'editable editable-click' %></a>
-				<% else %>
-					<%= @user.nickname %>
-				<% end %>
-			</td>
-		</tr>
-		<tr>
-			<td>
-	  			Tasks:
-			</td>
-			<td> 
-				<%= link_to @user.tasks.count, search_tasks_by_user_path(current_locale, user_id: @user.id) %>
-			</td>
-		</tr>
-		<tr>
-			<td>
-	  			Rating:
-			</td>
-			<td> 
-				<%= @rating.to_f %>
-			</td>
-		</tr>
-	</table>
+<div class="col-md-12">
+	<div class="bar well">	
+		<h1><%= user.nickname %></h1>
+		<table class='table'>
+			<tr>
+				<td>
+		  			NickName:
+				</td>
+				<td> 
+					<% if can? :edit, user %>
+						<a href='#'><%= best_in_place user, :nickname, :path => user_path(current_locale, user.id), :class => 'editable editable-click' %></a>
+					<% else %>
+						<%= link_to user.nickname, user_path(current_locale, user.id) %>
+					<% end %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+		  			Tasks:
+				</td>
+				<td> 
+					<%= link_to user.tasks.count, search_tasks_by_user_path(current_locale, user_id: user.id) %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+		  			Rating:
+				</td>
+				<td> 
+					<%= @rating.to_f %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+		  			Answered tasks:
+				</td>
+				<td> 
+					<%= @answered %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+		  			Attempts:
+				</td>
+				<td> 
+					<%= @attempts %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+		  			Efficiency:
+				</td>
+				<td> 
+					<%= @efficiency %>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

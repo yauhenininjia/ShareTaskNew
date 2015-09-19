@@ -64,7 +64,7 @@ $(document).ready(function() {
 
 
 $(document).ready(function(){
-$("#tagcloud").tx3TagCloud({
+$(".tagcloud").tx3TagCloud({
 multiplier: 1 // default multiplier is "1"
 });
 });

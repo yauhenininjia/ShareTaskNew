@@ -1,54 +1,58 @@
-<h1><%= link_to task.name, task_path(current_locale, task.id) %>
+<div class="col-md-12">
+	<div class="bar well">
+		<h1><%= link_to task.name, task_path(current_locale, task.id) %>
 
-<% if can? :destroy, task %>
-  	<%= link_to user_task_path(current_locale, task.user.id, task), method: :delete, data: {confirm: 'Are you sure?'} do %>
-		<span class="glyphicon glyphicon-remove navbar-text navbar-right" title='Remove task'></span>
-  	<% end %>
-<% end %>
-
-</h1>
-
-<hr> 
-Section: <%= link_to task.section, search_tasks_by_section_path(current_locale, section: task.section) %>
-<br>
-Tags:
-<% task.tags.each do |tag| %>
-	<%= link_to tag, search_tasks_by_tag_path(current_locale, tag: tag.name) %>
-<% end %>
-<hr>
-
-<p>
-    <span class="glyphicon glyphicon-user"></span> <%= link_to task.user.nickname, user_path(current_locale, task.user.id)  %>
-</p>
-
-<p>
-	<span class="glyphicon glyphicon-time"></span> Posted on  <%= l task.created_at %>
-</p>
-
-<hr>
-<%= markdown task.description %>
-<hr>
-<% task.images.each do |image| %>
-	<div class="col-sm-6 col-md-3">
-      	<div class="thumbnail">
-			<%= link_to image_tag(image.url), image.url %>
-		</div>
-	</div>
-<% end %>
-
-<%= rating_for task, "description" %>
-<div class='rating' data-id= <%= task.id %> > <%= task.rates(:description).average(:stars).to_f.round(1) %> </div>
-
-
-<br><br>
-
-<% if can? :answer, task %>
-	<% if !answered? task %>
-		<%= form_for :attempt, url: attempts_path, method: :post, html: {:role => 'form', :class => "form-inline", data: {task_id: task.id}}, remote: true do |f| %>
-			<%= f.text_field :attempt_answer,  {:class => 'form-control input-sm', placeholder: 'Answer'} %>
-			<%= f.hidden_field :user_id, {value: current_user.id} %>
-			<%= f.hidden_field :task_id, {value: task.id} %>
-			<%= f.submit :class => 'btn btn-primary btn-sm' %>
+		<% if can? :destroy, task %>
+		  	<%= link_to user_task_path(current_locale, task.user.id, task), method: :delete, data: {confirm: 'Are you sure?'} do %>
+				<span class="glyphicon glyphicon-remove navbar-text navbar-right" title='Remove task'></span>
+		  	<% end %>
 		<% end %>
-	<% end %>
-<% end %>
+
+		</h1>
+
+		<hr> 
+		Section: <%= link_to task.section, search_tasks_by_section_path(current_locale, section: task.section) %>
+		<br>
+		Tags:
+		<% task.tags.each do |tag| %>
+			<%= link_to tag, search_tasks_by_tag_path(current_locale, tag: tag.name) %>
+		<% end %>
+		<hr>
+
+		<p>
+		    <span class="glyphicon glyphicon-user"></span> <%= link_to task.user.nickname, user_path(current_locale, task.user.id)  %>
+		</p>
+
+		<p>
+			<span class="glyphicon glyphicon-time"></span> Posted on  <%= l task.created_at %>
+		</p>
+
+		<hr>
+		<%= markdown task.description %>
+		<hr>
+		<% task.images.each do |image| %>
+			<div class="col-sm-6 col-md-3">
+		      	<div class="thumbnail">
+					<%= link_to image_tag(image.url), image.url %>
+				</div>
+			</div>
+		<% end %>
+
+		<%= rating_for task, "description" %>
+		<div class='rating' data-id= <%= task.id %> > <%= task.rates(:description).average(:stars).to_f.round(1) %> </div>
+
+
+		<br><br>
+
+		<% if can? :answer, task %>
+			<% if !answered? task %>
+				<%= form_for :attempt, url: attempts_path, method: :post, html: {:role => 'form', :class => "form-inline", data: {task_id: task.id}}, remote: true do |f| %>
+					<%= f.text_field :attempt_answer,  {:class => 'form-control input-sm', placeholder: 'Answer'} %>
+					<%= f.hidden_field :user_id, {value: current_user.id} %>
+					<%= f.hidden_field :task_id, {value: task.id} %>
+					<%= f.submit :class => 'btn btn-primary btn-sm' %>
+				<% end %>
+			<% end %>
+		<% end %>
+	</div>
+</div>

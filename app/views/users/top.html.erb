@@ -1,0 +1,25 @@
+<% @users.each do |user| %>
+	<div class="col-md-12">
+		<div class="bar well">	
+			<h1><%= link_to user.nickname, user_path(current_locale, user.id) %></h1>
+			<table class='table'>
+				<tr>
+					<td>
+			  			Tasks:
+					</td>
+					<td> 
+						<%= link_to user.tasks.count, search_tasks_by_user_path(current_locale, user_id: user.id) %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+			  			Rating:
+					</td>
+					<td> 
+						<%= @rating.to_f %>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+<% end %>
