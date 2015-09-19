@@ -9,11 +9,11 @@
 </h1>
 
 <hr> 
-Section: <%= link_to task.section, tasks_search_by_section_path(current_locale, section: task.section) %>
+Section: <%= link_to task.section, search_tasks_by_section_path(current_locale, section: task.section) %>
 <br>
 Tags:
 <% task.tags.each do |tag| %>
-	<%= link_to tag, tasks_search_by_tag_path(current_locale, tag: tag.name) %>
+	<%= link_to tag, search_tasks_by_tag_path(current_locale, tag: tag.name) %>
 <% end %>
 <hr>
 

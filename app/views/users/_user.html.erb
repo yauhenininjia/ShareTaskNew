@@ -17,7 +17,7 @@
 	  			Tasks:
 			</td>
 			<td> 
-				<%= link_to @user.tasks.count, tasks_search_by_user_path(current_locale, user_id: @user.id) %>
+				<%= link_to @user.tasks.count, search_tasks_by_user_path(current_locale, user_id: @user.id) %>
 			</td>
 		</tr>
 		<tr>

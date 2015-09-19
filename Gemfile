@@ -60,3 +60,4 @@ gem "jquery-ui-rails"
 gem 'letsrate'
 gem 'cancancan'
 gem 'best_in_place'
+gem 'thinking-sphinx'

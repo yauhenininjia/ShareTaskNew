@@ -2,7 +2,7 @@
         <h4>Task sections</h4>
     <ul class="list-unstyled">
         <% Task.sections.each do |section| %>
-            <li> <%= link_to section.first, tasks_search_by_section_path(current_locale, section: section.first) %> </li>
+            <li> <%= link_to section.first, search_tasks_by_section_path(current_locale, section: section.first) %> </li>
         <% end %>
     </ul>
 </div>

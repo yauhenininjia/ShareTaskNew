@@ -5,6 +5,7 @@ class TasksController < ApplicationController
 
   def index
   	@tasks = Task.all
+    @tasks.reverse_order!
   end
 
   def new
@@ -56,20 +57,7 @@ class TasksController < ApplicationController
     redirect_to tasks_path
   end
 
-  def search_by_tag
-    @tasks = Task.tagged_with params[:tag]
-    render 'index'
-  end
-
-  def search_by_section
-    @tasks = Task.where section: params[:section]
-    render 'index'
-  end
-
-  def search_by_user
-    @tasks = Task.where user_id: params[:user_id]
-    render 'index'
-  end
+  
 
 
   private
