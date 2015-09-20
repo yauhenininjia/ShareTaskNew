@@ -1,10 +1,14 @@
-<%= render @task, locals: {task: @task} %>
+<div class="col-md-12">
+	<div class="bar well">
+		<%= render @task, locals: {task: @task} %>
 
-<hr>
-<%= render 'comments/form' %>
+		<hr>
+		<%= render 'comments/form' %>
 
-<div id='comments'>
-	<h4>Comments</h4>
-	<hr>
-	<%= render @task.comments %>
+		<div id='comments'>
+			<h4><%= t 'comment.comments' %></h4>
+			<hr>
+			<%= render @task.comments %>
+		</div>
+	</div>
 </div>

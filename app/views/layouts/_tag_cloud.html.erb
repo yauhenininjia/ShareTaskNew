@@ -1,7 +1,7 @@
 <div class="col-md-4">
     <!-- Blog Categories Well -->
     <div class="bar well">
-        <h4>Tag cloud</h4>
+        <h4><%= t 'tag.top' %></h4>
         <div class="row">
             <div class="col-lg-12">
                 <ul class="tagcloud">
@@ -11,5 +11,6 @@
                 </ul>
             </div>
         </div>
+        <p><%= link_to t('tag.tag_cloud'), tags_path(current_locale) %></p>
     </div>
 </div>

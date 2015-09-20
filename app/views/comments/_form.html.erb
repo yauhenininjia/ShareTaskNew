@@ -1,5 +1,5 @@
-<div class="well">
-    <h4>Leave a Comment:</h4>
+
+    <h4><%= t 'comment.leave' %>:</h4>
     <%= form_for [@task, @task.comments.build], url: user_task_comments_path(current_locale, current_user.id, @task.id), :method => :post, remote: true do |f| %>
         <div class="form-group">
 		    <%= f.text_area :body, :class => 'form-control input-sm', :data => {:provide => "markdown"} %>
@@ -8,4 +8,3 @@
 		    <%= f.submit :class => "btn btn-primary btn-sm" %>
 		</div>
     <% end %>
-</div>

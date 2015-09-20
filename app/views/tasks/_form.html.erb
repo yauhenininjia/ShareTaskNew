@@ -1,4 +1,4 @@
-<h1><%= link_to 'New task', new_task_path(current_locale) %></h1>
+<h1><%= link_to t('navigation.new_task'), new_task_path(current_locale) %></h1>
 
 <hr>
 <%= form_for (:task), url: tasks_path(current_locale), method: :post, :html => {:role => 'form', :class => 'form', :id => 'form'} do |f| %>
@@ -6,8 +6,7 @@
   <% if @task.errors.any? %>
 	<div id="error_explanation">
 	  <h2>
-	    <%= pluralize(@task.errors.count, "error") %> prohibited
-	      this task from being saved:
+	    <%= pluralize(@task.errors.count, "error") %> :
 	  </h2>
 	  <ul>
 	    <% @task.errors.full_messages.each do |msg| %>
@@ -17,7 +16,7 @@
 	</div>
   <% end %>
 
-  <%= label_tag 'Section' %>
+  <%= label_tag t 'navigation.section.one' %>
   <br>
   <%= f.radio_button :section, :ror, {checked: true} %>
   <%= f.label :section_ror, 'Ruby on Rails' %>
@@ -48,20 +47,20 @@
     <%= f.text_area :description, :class => 'form-control input-sm', :data => {:provide => "markdown"} %>
   </div>
 
-  <%= link_to "Upload images", '#', id: 'upload_widget_opener', class: 'btn btn-sm btn-primary' %>
+  <%= link_to t('image.upload'), '#', id: 'upload_widget_opener', class: 'btn btn-sm btn-primary' %>
   <br><br>
   <p id =  'preview'></p>
   <hr>
 
   <div class="input_fields_wrap form-group">
-    <button class="add_field_button btn btn-sm btn-primary">Add answer</button> <br><br>
-    <div><%= f.text_field :answers, :class => 'form-control input-sm', :name => 'task[answers][]', :value => '', placeholder: 'Answer #1'%></div><br>
+    <button class="add_field_button btn btn-sm btn-primary"><%= t 'answer.add' %></button> <br><br>
+    <div><%= f.text_field :answers, :class => 'form-control input-sm', :name => 'task[answers][]', :value => '', placeholder: (t('attempt.answer_text') + ' #1') %></div><br>
   </div>
 
   <hr>
 
   <div class="form-group">
-    <%= f.submit :class => "btn btn-success btn-sm" %>
+    <%= f.submit t('helpers.submit.task.create'), :class => "btn btn-success btn-sm" %>
   </div>
 
 <script src="//widget.cloudinary.com/global/all.js" type="text/javascript"></script>  

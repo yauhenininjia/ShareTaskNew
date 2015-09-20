@@ -48,4 +48,8 @@ class ApplicationController < ActionController::Base
       #@tags = Task.tag_counts_on(:tags)
       @tags = ActsAsTaggableOn::Tag.most_used(20)
     end
+
+    def per_page
+      5
+    end
 end

@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   autocomplete :tag, :name, :class_name => 'ActsAsTaggableOn::Tag'
 
   def index
-  	@tasks = Task.all
+  	@tasks = Task.paginate(:page => params[:page], per_page: per_page)#all
     @tasks.reverse_order!
   end
 

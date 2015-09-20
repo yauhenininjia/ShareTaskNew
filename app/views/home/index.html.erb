@@ -1,14 +1,14 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
-<p><%= I18n.t(:hello) %></p>
-<br>
-<%= link_to image_tag("facebook.png", :width => 32, :height => 32), user_omniauth_authorize_path(:facebook) %>
-<%= link_to image_tag("twitter.png", :width => 32, :height => 32), user_omniauth_authorize_path(:twitter) %>
-<%= link_to image_tag("vkontakte.png", :width => 34, :height => 34), user_omniauth_authorize_path(:vkontakte) %>
-<br><br>
-<% if current_user %>
-  
-<% end %>
-
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<div class="col-md-12">
+	<div class="bar well">
+		<h1>Home#index</h1>
+		<p>Find me in app/views/home/index.html.erb</p>
+		<p><%= I18n.t(:hello) %></p>
+		<br>
+		<%= link_to image_tag("facebook.png", :width => 32, :height => 32), user_omniauth_authorize_path(:facebook) %>
+		<%= link_to image_tag("twitter.png", :width => 32, :height => 32), user_omniauth_authorize_path(:twitter) %>
+		<%= link_to image_tag("vkontakte.png", :width => 34, :height => 34), user_omniauth_authorize_path(:vkontakte) %>
+	<br><br>
+  	<!--<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">-->
+ </div>
+ </div>
   

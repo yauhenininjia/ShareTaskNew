@@ -1,7 +1,8 @@
 <div class="col-lg-6">
-    <h4>Navigation</h4>
+    <h4><%= t 'navigation.navigation' %></h4>
     <ul class="list-unstyled">
-        <li><%= link_to 'New task', new_task_path(current_locale) %></li>
-        <li><%= link_to 'Feed', tasks_path(current_locale) %></li>
+        <li><%= link_to t('navigation.new_task'), new_task_path(current_locale) %></li>
+        <li><%= link_to t('navigation.feed'), tasks_path(current_locale) %></li>
+        <li><%= link_to t('navigation.top_users'), users_top_path(current_locale) %></li>
     </ul>
 </div>

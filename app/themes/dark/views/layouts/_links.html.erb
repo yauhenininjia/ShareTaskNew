@@ -1,15 +1,15 @@
 <ul class="nav navbar-nav">
   <% if user_signed_in? %>
-    <li><%= link_to 'Profile', user_path(current_locale, current_user.id) %></li>
-    <li><%= link_to t('header.sign_out'), destroy_user_session_path(:ru), :method => :delete %></li>
+    <li><%= link_to t('navigation.profile'), user_path(current_locale, current_user.id) %></li>
+    <li><%= link_to t('navigation.sign_out'), destroy_user_session_path(:ru), :method => :delete %></li>
   <% else %>
-    <li><%= link_to t('header.sign_in'), new_user_session_path(:ru) %></li>
-    <li><%= link_to t('header.sign_up'), new_user_registration_path(:ru) %></li>
+    <li><%= link_to t('navigation.sign_in'), new_user_session_path(:ru) %></li>
+    <li><%= link_to t('navigation.sign_up'), new_user_registration_path(:ru) %></li>
   <%end%>
 </ul>
 
 <ul class="nav navbar-nav navbar-right">
-  <li><%= link_to t('header.switch_theme'),    {:controller => "/home", :action => :switch_theme, :theme => :light} %>
+  <li><%= link_to t('navigation.switch_theme'),    {:controller => "/home", :action => :switch_theme, :theme => :light} %>
   </li>
   <li><%= link_to image_tag("en.png", :width => 34, :height => 20), users_change_locale_path(I18n.locale, :loc => 'en') %>
   </li>

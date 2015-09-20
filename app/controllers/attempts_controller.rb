@@ -9,9 +9,9 @@ class AttemptsController < ApplicationController
   	@attempt.answered = Task.find(@attempt.task_id).answers.pluck(:body).include? @attempt.attempt_answer
   	@attempt.save
   	if @attempt.answered
-  		@message = 'Great! Right Answer'
+  		@message = t('attempt.right_answer')
   	else
-  		@message = 'Wrong answer. Think again'
+  		@message = t('attempt.wrong_answer')
   	end
   	respond_to do |format|
   	  format.js { }

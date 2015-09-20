@@ -7,7 +7,9 @@ class Task < ActiveRecord::Base
   has_many :images, :dependent => :destroy
   has_many :attempts, :dependent => :destroy
 
-  validates :name, presence: true
+  validates :name, presence: true, length: { maximum: 25 }
+  validates :description, presence: true
+  #validates_associated :answers
 
   enumerated :section, [ :ror, :java, :python, :net ]
   letsrate_rateable 'description'

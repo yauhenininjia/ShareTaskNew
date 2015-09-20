@@ -1,5 +1,5 @@
 <div class="col-lg-6">
-        <h4>Task sections</h4>
+        <h4><%= t('navigation.section.other') %></h4>
     <ul class="list-unstyled">
         <% Task.sections.each do |section| %>
             <li> <%= link_to section.first, search_tasks_by_section_path(current_locale, section: section.first) %> </li>

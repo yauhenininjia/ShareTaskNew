@@ -81,19 +81,62 @@ en:
       short: "%d %b %H:%M"
     pm: pm
   hello: "Hello world"
-  header:
+  navigation:
     home: "Home"
     sign_up: "Sign up"
     sign_in: "Sign in"
     sign_out: "Sign out"
     switch_theme: "Switch theme"
+    profile: "Profile"
+    search: "Search"
+    section:
+      one: "Section"
+      other: "Sections"
+    navigation: "Navigation"
+    new_task: "New task"
+    feed: "Feed"
+    top_users: "Top users"
+  tag:
+    tags: "Tags"
+    tag_cloud: "Tag cloud"
+    top: "Top tags"
+  task:
+    posted_on: "Posted on"
+  attempt:
+    answer_text: "Answer"
+    answer: "Answer"
+    right_answer: "Great! Right Answer"
+    wrong_answer: "Wrong answer. Think again"
+  image:
+    upload: 'Upload images'
+  answer:
+    add: 'Add answer'
+  comment:
+    leave: 'Leave a comment'
+    comments: 'Comments'
+  user:
+    nickname: 'Nickname'
+    tasks: 'Tasks'
+    rating: 'Rating'
+    answered_tasks: 'Answered tasks'
+    attempts: 'Attempts to answer'
+    efficiency: 'Efficiency'
   activerecord:
+    models:
+      task:
+        zero: "tasks"
+        one: "task"
+        other: "tasks"
     attributes:
       user:
         nickname: "Nickname"
         password: "Password"
         email: "Email"
         password_confirmation: "Password confirmation"
+      task:
+        name: "Name"
+        description: 'Description'
+        answers: 'Answers'
     errors:
       messages:
         accepted: must be accepted
@@ -128,3 +171,29 @@ en:
           one: is the wrong length (should be 1 character)
           other: is the wrong length (should be %{count} characters)
         other_than: must be other than %{count}
+  will_paginate:
+    page_entries_info:
+      single_page:
+        zero:  "No %{model} found"
+        one:   "Displaying 1 %{model}"
+        other: "Displaying all %{count} %{model}"
+      single_page_html:
+        zero:  "No %{model} found"
+        one:   "Displaying <b>1</b> %{model}"
+        other: "Displaying <b>all&nbsp;%{count}</b> %{model}"
+
+      multi_page: "%{model} %{from} - %{to} of %{count} in total"
+      multi_page_html: "%{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{count}</b> in total"
+    page_gap: '...'
+  helpers:
+    submit:
+      task:
+        create: "Create task"
+      comment:
+        create: 'Comment'
+    label:
+      task:
+        tags: 'Tags'
+        section: 'Section'
+        name: 'Name'
+        description: 'Description'

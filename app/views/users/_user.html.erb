@@ -4,7 +4,7 @@
 		<table class='table'>
 			<tr>
 				<td>
-		  			NickName:
+		  			<%= t 'user.nickname' %>:
 				</td>
 				<td> 
 					<% if can? :edit, user %>
@@ -16,7 +16,7 @@
 			</tr>
 			<tr>
 				<td>
-		  			Tasks:
+		  			<%= t 'user.tasks' %>:
 				</td>
 				<td> 
 					<%= link_to user.tasks.count, search_tasks_by_user_path(current_locale, user_id: user.id) %>
@@ -24,7 +24,7 @@
 			</tr>
 			<tr>
 				<td>
-		  			Rating:
+		  			<%= t 'user.rating' %>:
 				</td>
 				<td> 
 					<%= @rating.to_f %>
@@ -32,7 +32,7 @@
 			</tr>
 			<tr>
 				<td>
-		  			Answered tasks:
+		  			<%= t 'user.answered_tasks' %>:
 				</td>
 				<td> 
 					<%= @answered %>
@@ -40,7 +40,7 @@
 			</tr>
 			<tr>
 				<td>
-		  			Attempts:
+		  			<%= t 'user.attempts' %>:
 				</td>
 				<td> 
 					<%= @attempts %>
@@ -48,7 +48,7 @@
 			</tr>
 			<tr>
 				<td>
-		  			Efficiency:
+		  			<%= t 'user.efficiency' %>:
 				</td>
 				<td> 
 					<%= @efficiency %>

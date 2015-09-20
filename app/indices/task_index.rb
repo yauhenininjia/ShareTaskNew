@@ -4,5 +4,4 @@ ThinkingSphinx::Index.define :task, :with => :active_record do
   indexes description
   indexes user(:nickname), :as => :author
   indexes comments.body
-  indexes tags.name
 end
